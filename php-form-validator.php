@@ -100,14 +100,14 @@ class FormValidator
      */
     private function validateField( $field )
     {
-        $rules      = is_array( $field[ 'rules' ] ) ? $field[ 'rules' ] : array(
-                                                                                $field[ 'rules' ]
-        ); // get rules as an array
+        $rules      = is_array( $field[ 'rules' ] ) ? $field[ 'rules' ] : array($field[ 'rules' ]); // get rules as an array
         $fieldValue = $this->values[ $field[ 'name' ] ];
 
         // If field is not required and is empty, it's valid
         if ( !in_array( 'required', $rules ) && empty( $fieldValue ) )
-            return true;
+        {
+            return true; // field is valid
+        }
 
         foreach ( $rules as $rule )
         {
