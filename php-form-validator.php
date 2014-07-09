@@ -147,7 +147,7 @@ class FormValidator
     {
         if ( empty( $value ) )
         {
-            $this->addError( $fieldName, 'Este campo es obligatorio' );
+            $this->addError( $fieldName, 'This field is required' );
             return false;
         }
         return true;
@@ -338,7 +338,7 @@ class FormValidator
      */
     private function name( $fieldName, $value )
     {
-        if ( !preg_match( "/^([a-z]+[ ]?){1,}$/", $value ) )
+        if ( !preg_match( "/^([A-z0-9- 'áéíóúñçÁÉÍÓÚÑÇ]+[ ]?){1,}$/", $value ) )
         {
             $this->addError( $fieldName, 'Please enter a valid name' );
             return false;
